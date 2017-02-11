@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2 text-center">
+    <h1>Tabellone con 2 Tabs</h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Tipo tariffa</th>
+          <th>Numero pezzi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let meter of meters">
+          <td>{{ meter.level }}</td>
+          <td>{{ meter.num }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
