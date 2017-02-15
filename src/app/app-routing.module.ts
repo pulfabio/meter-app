@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login.component';
-import { DashboardComponent } from './dashboard.component';
+import { DashboardElettrComponent } from './dashboard-elettr.component';
+import { DashboardGasComponent } from './dashboard-gas.component';
+import { DetailsComponent } from './details.component';
 import { PageNotFoundComponent } from './not-found.component';
 
 import { AuthGuardService } from "./auth-guard.service";
@@ -11,8 +13,11 @@ import { AuthGuardService } from "./auth-guard.service";
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'elettr', component: DashboardElettrComponent, canActivate: [AuthGuardService] },
+  { path: 'gas', component: DashboardGasComponent, canActivate: [AuthGuardService] },
+  { path: 'detail/:livello', component: DetailsComponent, canActivate: [AuthGuardService] },
+  //{ path: 'dashboard', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuardService] },
+  { path: '', redirectTo: '/elettr', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

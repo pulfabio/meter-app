@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'login',
   templateUrl: './login.component.html'
 })
@@ -15,12 +16,12 @@ export class LoginComponent {
 
   onSubmit() {
     this.authService.login(this.email, this.password).subscribe((result) => {
-      if (result) {
-        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/home';
+      if (result.success) {
+        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/elettr';
         // Redirect the user
         this.router.navigate([redirect]);
       } else {
-        this.errorMsg = "Login errato";
+        this.errorMsg = result.message;
       }
     });
   }

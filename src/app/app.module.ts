@@ -12,7 +12,9 @@ import { DashboardService } from "./dashboard.service";
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login.component';
-import { DashboardComponent } from './dashboard.component';
+import { DashboardElettrComponent } from './dashboard-elettr.component';
+import { DashboardGasComponent } from './dashboard-gas.component';
+import { DetailsComponent } from './details.component';
 import { PageNotFoundComponent } from './not-found.component';
 
 @NgModule({
@@ -20,7 +22,9 @@ import { PageNotFoundComponent } from './not-found.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    DashboardComponent,
+    DashboardElettrComponent,
+    DashboardGasComponent,
+    DetailsComponent,
     PageNotFoundComponent
   ],
   imports: [

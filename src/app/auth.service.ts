@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
 import { tokenNotExpired } from 'angular2-jwt';
 
@@ -12,42 +13,48 @@ export class AuthService {
   private loggedIn = false;
   redirectUrl: string;
 
-  constructor(private http: Http) {
+  constructor(
+    private http: Http,
+    private router: Router
+  ) {
     this.loggedIn = !!localStorage.getItem('auth_token');
-    //tokenNotExpired(); Can run this check
   }
 
-  login(email, password) {
+  login(username, password) {
     // Mock login function, for testing w/o server side
-    this.loggedIn = true;
-    return Observable.of(true);;
-
+    // this.loggedIn = true;
+    // return Observable.of(true);;
 
     //Real login function !!!!
 
-    /*let headers = new Headers();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
       .post(
-        '/login',
-        JSON.stringify({ email, password }),
+        'http://localhost:3001/api/login',
+        JSON.stringify({ username, password }),
         { headers }
       )
       .map(res => res.json())
       .map((res) => {
         if (res.success) {
+          console.log(res.auth_token);
           localStorage.setItem('auth_token', res.auth_token);
+          // var tok = localStorage.getItem('auth_token');//Debugging
+          // console.log(tok); //Debugging
           this.loggedIn = true;
+          // console.log(this.loggedIn); //Debugging
         }
-
-        return res.success;
-      });*/
+        console.log(res.message);
+        return res;
+      });
   }
 
   logout() {
     localStorage.removeItem('auth_token');
     this.loggedIn = false;
+    this.router.navigate(['/login'])
   }
 
   isLoggedIn() {

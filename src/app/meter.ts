@@ -1,6 +1,5 @@
 export class Meter {
-  id: number;
-  type: string;
-  level: string;
-  num: number;
+  livello: string;
+  incaricato: string;
+  stato: string;
 }

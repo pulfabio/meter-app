@@ -1,0 +1,27 @@
+{
+  "data": [{
+    "username": "bolzangermano",
+    "password": "1gfdgf",
+    "attivo": 1
+  }, {
+    "username": "vaghigiuseppe",
+    "password": "2gdgfd",
+    "attivo": 0
+  }, {
+    "username": "boriamaurizio",
+    "password": "342ffgg",
+    "attivo": 0
+  }, {
+    "username": "scuccatomanuel",
+    "password": "32543f",
+    "attivo": 1
+  }, {
+    "username": "cassinvania",
+    "password": "32432fg",
+    "attivo": 1
+  }, {
+    "username": "autelltanodavide",
+    "password": "32354g",
+    "attivo": 1
+  }]
+}

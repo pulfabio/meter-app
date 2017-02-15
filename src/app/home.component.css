@@ -1,3 +1,33 @@
 .navbar-right {
   margin-right: 0px !important
 }
+
+.logout:hover {
+  cursor: pointer;
+}
+
+.meter-tab {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.meter-tab:visited, a:link {
+  color: #607D8B;
+}
+
+.meter-tab:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+
+.meter-tab.active {
+  color: #039be5;
+}
+
+.footer {
+  margin-top: 10px;
+}

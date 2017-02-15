@@ -1,26 +1,38 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-default">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/home">myapp</a>
-    </div>
-    <!-- On the left side of our navbar we'll display the two links for public and private deals -->
-    <ul class="nav navbar-nav">
-      <li>
-        <a routerLink="/dashboard" routerLinkActive="active">Controllo Contatori</a>
-      </li>
-    </ul>
-    <!-- On the right side of our navbar we'll display the login and logout actions depending on user state -->
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-         <a routerLink="/login" routerLinkActive="active" *ngIf="!authService.isLoggedIn()">Log In</a>
-      </li>
-      <li>
-        <a (click)=authService.logout *ngIf="authService.isLoggedIn()">Log Out</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="col-sm-12">
-    <!-- The router-outlet directive will display the component based on the route we are on, more on this soon -->
-    <router-outlet></router-outlet>
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <a class="navbar-brand" routerLink="/elettr">Meter App</a>
   </div>
-</div>
+
+  <!-- Link to meter dashboard - removed -->
+  <!-- <ul class="nav navbar-nav">
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active">Controllo Contatori</a>
+    </li>
+  </ul> -->
+
+  <!-- On the right side of our navbar we'll display the login and logout actions depending on user state -->
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+       <a routerLink="/login" routerLinkActive="active" *ngIf="!authService.isLoggedIn()">Login</a>
+    </li>
+    <li>
+      <a class="logout" (click)="logout()" *ngIf="authService.isLoggedIn()">Logout</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Content displayed only if user is logged in -->
+<h3 *ngIf="!authService.isLoggedIn()" class="text-center">
+  <a routerLink="/login">Effettuare il LOGIN per accedere al pannello di controllo</a>
+</h3>
+<!-- The router-outlet directive will display the component based on the route we are on -->
+<nav *ngIf="authService.isLoggedIn()" class="nav nav-tabs text-center">
+  <a routerLink="/elettr" routerLinkActive="active" class="meter-tab">Riepilogo Contatori Elettrici</a>
+  <a routerLink="/gas" routerLinkActive="active" class="meter-tab">Riepilogo Contatori Gas</a>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<p class="footer text-center">Meter App.  Copyright 2017 by cleanzFabs. All Rights Reserved.</p>
